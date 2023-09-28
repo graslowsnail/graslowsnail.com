@@ -22,7 +22,7 @@ export default function PreviewPage() {
     fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}/api`, { // Make sure this matches your API Route
       method: 'POST',
       mode: 'cors',
-      header: {
+      headers: {
         'Content-Type': 'application/json',
       },
     })
