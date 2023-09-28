@@ -21,10 +21,6 @@ export default function PreviewPage() {
 
     fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}/api`, { // Make sure this matches your API Route
       method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
     })
       .then(response => {
         if (!response.ok) {
