@@ -29,7 +29,7 @@ export default function PreviewPage() {
         return response.json();
       })
       .then(session => {
-        return stripe.redirectToCheckout({ sessionId: session.sessionId }); // Make sure it's session.sessionId
+        return stripe?.redirectToCheckout({ sessionId: session.sessionId }); // Make sure it's session.sessionId
       })
       .catch((error) => {
         console.error('There was an error redirecting to Stripe Checkout:', error);
