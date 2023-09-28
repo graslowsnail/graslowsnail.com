@@ -26,7 +26,16 @@ export const POST = async (req: NextRequest) => {
     });
     
     // If the session is successfully created, return a JSON response with the session ID
-    return NextResponse.json({ sessionId: session.id })
+    return NextResponse.json(
+      { sessionId: session.id },
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      },
+    )
   } catch (err: any) {
     // Log any errors for debugging
     console.log(err);
