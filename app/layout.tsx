@@ -1,7 +1,6 @@
 // sets page layout for project
 import './globals.css'
 import { Navbar, Footer } from '@/components';
-import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: 'graslowsnail',
@@ -18,7 +17,6 @@ export default function RootLayout({
         <body className='relative flex flex-col min-h-screen'>
             <Navbar />
             {children}
-            <Analytics />
             <Footer />
         </body>
     </html>
