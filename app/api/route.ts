@@ -21,8 +21,8 @@ export const POST = async (req: NextRequest) => {
       // Define the mode of the checkout session (in this case, "payment")
       mode: 'payment',
       // Define URLs where users should be redirected upon success and cancellation
-      success_url: `https://${process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}/paymentSuccessful`,
-      cancel_url: `https://${process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}/paymentFailed`,
+      success_url: `${process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}/paymentSuccessful`,
+      cancel_url: `${process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}/paymentFailed`,
     });
     
     // If the session is successfully created, return a JSON response with the session ID
