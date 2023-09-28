@@ -26,7 +26,10 @@ export const POST = async (req: NextRequest) => {
     });
     
     // If the session is successfully created, return a JSON response with the session ID
-    return NextResponse.json({ sessionId: session.id });
+    return NextResponse.json({ sessionId: session.id }).setHeader(
+            'Access-Control-Allow-Origin',
+      '*' // Allows any origin. Adjust accordingly to your needs.
+    );
   } catch (err: any) {
     // Log any errors for debugging
     console.log(err);
@@ -34,6 +37,9 @@ export const POST = async (req: NextRequest) => {
     return NextResponse.json(
       { error: err.message },
       { status: err.statusCode || 500 }
+    ).setHeader(
+          'Access-Control-Allow-Origin',
+      '*' // Allows any origin. Adjust accordingly to your needs.
     );
   }
 }
