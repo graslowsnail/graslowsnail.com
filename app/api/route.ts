@@ -18,6 +18,9 @@ export const POST = async (req: NextRequest) => {
           quantity: 1,
         },
       ],
+        shipping_address_collection: {
+          allowed_countries: ['US']
+        },
       // Define the mode of the checkout session (in this case, "payment")
       mode: 'payment',
       // Define URLs where users should be redirected upon success and cancellation
