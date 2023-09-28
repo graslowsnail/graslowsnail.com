@@ -19,7 +19,7 @@ export default function PreviewPage() {
   const handleCheckout = async () => {
     const stripe = await stripePromise;
 
-    fetch('http://localhost:3000/api', { // Make sure this matches your API Route
+    fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}/api`, { // Make sure this matches your API Route
       method: 'POST',
     })
       .then(response => {
