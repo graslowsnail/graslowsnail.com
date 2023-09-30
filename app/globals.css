@@ -102,5 +102,7 @@
   object-fit: cover;
 }
 
-
-
+/* text style for album thumbnail*/
+.shadow-text-black {
+  text-shadow: .5px .5px 0 black, -.5px -.5px 0 black, .5px -.5px 0 black, -.5px .5px 0 black;
+}
