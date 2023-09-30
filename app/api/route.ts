@@ -13,7 +13,7 @@ export const POST = async (req: NextRequest) => {
       line_items: [
         {
           // Provide the actual Price ID of the product you want to sell
-          price: 'price_1NkxOFJ93I2Tg3FXcDgL8q6b',
+          price: 'price_1NvxtCJ93I2Tg3FXGcDZzp1q',
           // Define the quantity of this item
           quantity: 1,
         },
