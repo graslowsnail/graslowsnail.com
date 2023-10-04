@@ -4,7 +4,7 @@ import { loadStripe } from '@stripe/stripe-js';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
-export default function PreviewPage() {
+export default function PreviewPage({ wantFrame }: any) {
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
     if (query.get('success')) {
@@ -18,9 +18,18 @@ export default function PreviewPage() {
 
   const handleCheckout = async () => {
     const stripe = await stripePromise;
+    const pictureWithFramePrice = 'price_1NxJshJ93I2Tg3FXXwmXFlpi';
+    const pictureWithOutFramePrice = 'price_1NxJshJ93I2Tg3FXrJF1Z9oN';
+
+    // Calculate the price based on the frame preference with frame price is first/ price witout frame 
+    const priceId = wantFrame ? pictureWithFramePrice : pictureWithOutFramePrice;
 
     fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}/api`, { // Make sure this matches your API Route
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ priceId })
     })
       .then(response => {
         if (!response.ok) {
