@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { CheckoutButton } from '@/components';
-
 import { fetchPictureData } from '@/util';
 
 // Define the main component, accepting albumId and pictureId as props.
@@ -94,7 +93,7 @@ return (
     )}
 
     <p className="text-sm font-light mb-2">Exclusive Limited Edition individual print from the "{picture.album_id}" Collection.</p>
-    <p className="text-sm font-light mb-6">Every photo available for purchase on this site is a one-of-one print. It comes framed and ready to be displayed. Once sold, this particular print will never be reprinted.</p>
+    <p className="text-sm font-light mb-6">Every photo available for purchase on this site is a one-of-one print. Once sold, this particular print will never be reprinted.</p>
 
   </div>
 
