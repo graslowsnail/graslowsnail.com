@@ -62,7 +62,8 @@ const SoldOutButton = () => {
 // Main return function to display picture information.
 return (
   <div className="flex flex-col items-center justify-center pt-20 px-6">
-  <div className="">
+
+  <div>
     <Image
       src={picture.imageURL}
       alt={picture.description}
@@ -71,36 +72,38 @@ return (
       priority={true}
     />
   </div>
+
   <div className="mt-6 text-center w-80">
     <p className="text-4xl font-regular font-['Koulen']">{picture.title}</p>
 
-    {/* Only show the price and frame option if the picture is not sold */}
+    {/* Only show the price if the picture is not sold */}
     {!picture.isSold && (
-      <>
-        <p className="text-lg font-light mb-2">${wantFrame ? '54.99' : '24.99'}</p>
-        <div className="text-sm flex items-center mb-2">
-          <label className="flex items-center cursor-pointer text-gray-700">
-            <input
-              type="checkbox"
-              className="form-checkbox h-4 w-4 text-indigo-600 rounded"
-              checked={wantFrame}
-              onChange={() => setWantFrame(!wantFrame)}
-            />
-            <span className="ml-2">Do you want to add a frame? +$35</span>
-          </label>
-        </div>
-      </>
+      <p className="text-lg font-light mb-2">${wantFrame ? '54.99' : '24.99'}</p>
     )}
 
     <p className="text-sm font-light mb-2">Exclusive Limited Edition individual print from the "{picture.album_id}" Collection.</p>
-    <p className="text-sm font-light mb-6">Every photo available for purchase on this site is a one-of-one print. Once sold, this particular print will never be reprinted.</p>
+    <p className="text-sm font-light mb-3">Every photo available for purchase on this site is a one-of-one print. Once sold, this particular print will never be reprinted.</p>
 
+    {/* Only show the frame option if the picture is not sold */}
+    {!picture.isSold && (
+      <div className="text-sm flex items-center justify-center mb-2">
+        <label className="flex items-center cursor-pointer text-gray-700">
+          <input
+            type="checkbox"
+            className="form-checkbox h-4 w-4 text-indigo-600 rounded"
+            checked={wantFrame}
+            onChange={() => setWantFrame(!wantFrame)}
+          />
+          <span className="ml-2">Do you want to add a frame? +$35</span>
+        </label>
+      </div>
+    )}
   </div>
 
   {picture.isSold ? <SoldOutButton /> : <CheckoutButton wantFrame={wantFrame} />}
 </div>
-);
 
+);
 };
 
 export default SimplePicturePage;
