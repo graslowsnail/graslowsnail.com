@@ -78,7 +78,7 @@ return (
 
     {/* Only show the price if the picture is not sold */}
     {!picture.isSold && (
-      <p className="text-lg font-light mb-2">${wantFrame ? '54.99' : '24.99'}</p>
+      <p className="text-lg font-light mb-2">${wantFrame ? '59.99' : '24.99'}</p>
     )}
 
     <p className="text-sm font-light mb-2">Exclusive Limited Edition individual print from the "{picture.album_id}" Collection.</p>
