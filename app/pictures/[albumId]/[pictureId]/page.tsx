@@ -100,7 +100,7 @@ return (
     )}
   </div>
 
-  {picture.isSold ? <SoldOutButton /> : <CheckoutButton wantFrame={wantFrame} />}
+  {picture.isSold ? <SoldOutButton /> : <CheckoutButton wantFrame={wantFrame} pictureId={pictureId} />}
 </div>
 
 );

@@ -6,7 +6,8 @@ const stripe = require('stripe')(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 // Define an async function to handle POST requests
 export const POST = async (req: NextRequest) => {
-  const { priceId } = await req.json();//Extract the passed priceId
+  const { priceId, pictureId } = await req.json();//Extract the passed priceId
+  console.log(pictureId);
 
   try {
     // Create a Stripe Checkout session
@@ -20,6 +21,9 @@ export const POST = async (req: NextRequest) => {
           quantity: 1,
         },
       ],
+      metadata: {
+        pictureId: pictureId
+      },
         shipping_address_collection: {
           allowed_countries: ['US']
         },

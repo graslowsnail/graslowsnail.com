@@ -4,7 +4,7 @@ import { loadStripe } from '@stripe/stripe-js';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
-export default function PreviewPage({ wantFrame }: any) {
+export default function PreviewPage({ wantFrame, pictureId }: any) {
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
     if (query.get('success')) {
@@ -29,7 +29,7 @@ export default function PreviewPage({ wantFrame }: any) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ priceId })
+      body: JSON.stringify({ priceId, pictureId })
     })
       .then(response => {
         if (!response.ok) {
