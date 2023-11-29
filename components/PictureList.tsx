@@ -58,6 +58,7 @@ const PictureList: React.FC<PictureListProps> = ({ albumId }) => {
             <div key={picture._id} className="relative">
               <Link href={`/pictures/${picture.album_id}/${picture._id}`} passHref>
                 {/* Actual Image */}
+                <div>
                 <Image 
                   priority={true}
                   src={picture.imageURL} 
@@ -66,6 +67,15 @@ const PictureList: React.FC<PictureListProps> = ({ albumId }) => {
                   height={IMAGE_HEIGHT}
                   onLoadingComplete={() => handleImageLoad(picture._id)}
                 />
+                {/* Conditional Sold Out text */}
+                  {picture.isSold && (
+                    <div className="absolute inset-0 flex justify-center items-center">
+                    <button className="w-80 h-9 bg-red-700 text-white font-semibold px-4 cursor-pointer transition-opacity duration-200 hover:opacity-80 shadow-md">
+                        SOLD OUT
+                      </button>
+                    </div>
+                  )}
+                </div>
               </Link>
             </div>
           ))}
