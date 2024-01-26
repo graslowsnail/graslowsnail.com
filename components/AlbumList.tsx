@@ -41,7 +41,7 @@ const AlbumList = () => {
         <ul role="list" className=" grid grid-row-3">
           {/* Map through pictures to display each one */}
           {pictures?.map((picture) => (
-            <li key={picture._id} className="relative group">
+            <li key={picture._id} className="relative group mb-4">
               <Link href={`/pictures/${picture.album_id}`} passHref>
                 <div className=" responsiveImageContainer relative hover:opacity-70 transform hover:scale-105 transition-all duration-300">
                   {/* Spinner: It will show by default */}
