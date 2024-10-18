@@ -18,8 +18,8 @@ export default function PreviewPage({ wantFrame, pictureId }: any) {
 
   const handleCheckout = async () => {
     const stripe = await stripePromise;
-    const pictureWithFramePrice = 'price_1NxJshJ93I2Tg3FXXwmXFlpi';
-    const pictureWithOutFramePrice = 'price_1NxJshJ93I2Tg3FXrJF1Z9oN';
+    const pictureWithFramePrice = 'price_1QBLmsJ93I2Tg3FXYdMdJNhN';
+    const pictureWithOutFramePrice = 'price_1QBLlKJ93I2Tg3FXiilIl9rP';
 
     // Calculate the price based on the frame preference with frame price is first/ price witout frame 
     const priceId = wantFrame ? pictureWithFramePrice : pictureWithOutFramePrice;
