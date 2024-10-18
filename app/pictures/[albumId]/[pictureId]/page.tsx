@@ -78,7 +78,7 @@ return (
 
     {/* Only show the price if the picture is not sold */}
     {!picture.isSold && (
-      <p className="text-lg font-light mb-2">${wantFrame ? '59.99' : '24.99'}</p>
+      <p className="text-lg font-light mb-2">${wantFrame ? '44.99' : '19.99'}</p>
     )}
 
     <p className="text-sm font-light mb-2">Exclusive Limited Edition individual print from the "{picture.album_id}" Collection.</p>
@@ -94,7 +94,7 @@ return (
             checked={wantFrame}
             onChange={() => setWantFrame(!wantFrame)}
           />
-          <span className="ml-2">Do you want to add a frame? +$35</span>
+          <span className="ml-2">Do you want to add a frame? +$25</span>
         </label>
       </div>
     )}
