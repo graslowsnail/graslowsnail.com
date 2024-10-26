@@ -16,34 +16,31 @@ export default function PreviewPage({ wantFrame, pictureId }: any) {
     }
   }, []);
 
-  const handleCheckout = async () => {
-    const stripe = await stripePromise;
-    const pictureWithFramePrice = process.env.PHOTO_PRICE_WITH_FRAME;
-    const pictureWithOutFramePrice = process.env.PHOTO_PRICE_WITH_OUT_FRAME
+const handleCheckout = async () => {
+  const stripe = await stripePromise;
 
-    // Calculate the price based on the frame preference with frame price is first/ price witout frame 
-    const priceId = wantFrame ? pictureWithFramePrice : pictureWithOutFramePrice;
-
-    fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}/api`, { // Make sure this matches your API Route
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ priceId, pictureId })
+  fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}/api`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ pictureId, wantFrame }),
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Network response was not ok');
+      }
+      return response.json();
     })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(session => {
-        return stripe?.redirectToCheckout({ sessionId: session.sessionId }); // Make sure it's session.sessionId
-      })
-      .catch((error) => {
-        console.error('There was an error redirecting to Stripe Checkout:', error);
-      });
-  };
+    .then((session) => {
+      return stripe?.redirectToCheckout({ sessionId: session.sessionId });
+    })
+    .catch((error) => {
+      console.error('Error redirecting to Stripe Checkout:', error);
+      // Optionally handle the error in the UI
+    });
+};
 
   return (
     <section className="bg-white flex flex-col w-96 h-9 rounded-md justify-between">
