@@ -19,7 +19,7 @@ export default function CheckoutButton({ wantFrame, pictureId }: any) {
   const handleCheckout = async () => {
     const stripe = await stripePromise;
 
-    fetch(`/api/checkout`, {
+    fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}/api`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
