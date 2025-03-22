@@ -13,6 +13,9 @@ const Navbar = () => {
             <Link href='/about'>
                 <h1 className="text-2xl navbar-h1 font-normal font-['Koulen']">ABOUT</h1>
             </Link>
+            <Link href='/blog'>
+                <h1 className="text-2xl navbar-h1 font-normal font-['Koulen']">BLOG</h1>
+            </Link>
             <Link href='/contact'>
                 <h1 className="text-2xl navbar-h1 font-normal font-['Koulen']">CONTACT</h1>
             </Link>
