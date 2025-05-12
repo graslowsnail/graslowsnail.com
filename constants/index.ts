@@ -26,8 +26,15 @@ I guess you could say I was forced to genuinely be in the moment.
 The walk back to the Apple store wasn't that bad, though—I had my iPod Classic with some music I'd downloaded (legally, of course).
 
 Honestly, that hour was pretty nice. I recommend leaving your phone at home for a day or at least in your room for an hour. It might surprise you.`,
-        date: "March 22, 2024"
-    }
+        date: "March 22, 2025"
+    },
+    {
+    "id": 2,
+    "title": "I'm breaking up with you.",
+    "content": "Hey, I've been meaning to talk to you about something that's been on my mind.\n\nLook, I don't want to waste any of your time, and honestly, I don't think we should see each other anymore. I think this relationship has taken a toll on me in a negative way.\n\nI constantly panic if you're not by my side. I glance at you every second I can. I get lost in your eyes for endless hours.\n\nYou honestly bring out the worst in me...\n\nI find myself staying up late, losing sleep over you. In the morning, the first thing that comes to my mind is YOU, and I panic if you're not by my side. I could lay there for hours with you, even if I know I have plenty to do.\n\nYou're perfect, your looks, your sense of humor. In every way, you're perfect. But when I'm with you, I constantly seek your validation, and put you fist. My life revolves around you. I spend almost every hour I'm awake with you.\n\nI can't do this anymore. There are things that I like to do, places I want to see, dreams I want to fulfill—and our relationship is taking that away from me. Even though you give me the freedom to do whatever I want, I still feel chained to you, and I've had enough.\n\nSo, iPhone, I'm breaking up with you.",
+    "date": "May 11, 2025"
+  }
+
 ];
 
 export const footerLinks = [
