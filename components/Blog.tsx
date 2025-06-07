@@ -1,26 +1,19 @@
-import Link from 'next/link';
-
-interface BlogProps {
-    id: number;
-    title: string;
-    date: string;
-}
-
-const Blog = ({ id, title, date }: BlogProps) => {
+import Link from "next/link";
 
 
-    return (
-        <Link href={`/blog/${id}`}>
-            <div className="p-6 mb-5 bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-100 rounded-[20px] hover:from-purple-100 hover:to-pink-100 transition-all duration-300 shadow-sm hover:shadow-md">
-                <div className="flex justify-between items-center">
-                    <h2 className="text-xl font-normal text-gray-800 font-['Koulen']">{title}</h2>
-                    <div className="flex items-center gap-4">
-                        <p className="text-sm text-gray-800 font-medium">{date}</p>
-                    </div>
-                </div>
-            </div>
-        </Link>
-    );
+const Blog = () => {
+  return (
+    <tr className="relative border-b border-violet-200 hover:bg-violet-100 cursor-pointer">
+      <td className="py-4 px-2">2021</td>
+      <td className="py-4 px-2">Making the Web, Faster.</td>
+      <td className="py-4 px-2 text-right text-gray-500">90,685</td>
+      <Link
+        href={`/blog/1`}
+        className="absolute inset-0"
+        aria-label="Read Making the Web, Faster"
+      />
+    </tr>
+  );
 };
 
-export default Blog; 
+export default Blog;
