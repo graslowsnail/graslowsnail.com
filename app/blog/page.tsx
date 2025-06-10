@@ -13,19 +13,26 @@ type BlogProps = {
 const Blog = ({ isLast, id, title, date }: BlogProps) => {
   let rowBorder;
   isLast
-    ? (rowBorder = "relative hover:bg-violet-100 cursor-pointer")
-    : (rowBorder = "relative border-b border-violet-200 hover:bg-violet-100 cursor-pointer");
+    ? (rowBorder = "hover:bg-violet-100 cursor-pointer")
+    : (rowBorder = "border-b border-violet-200 hover:bg-violet-100 cursor-pointer");
 
   return (
-    <tr className={`${rowBorder} `}>
-      <td className="py-4 px-2 font-mono">{date}</td>
-      <td className="py-4 px-2 font-mono">{title}</td>
-      <td className="py-4 px-2 text-right text-gray-500 font-mono ">.</td>
-      <Link
-        href={`/blog/${id}`}
-        className="absolute inset-0 font-mono"
-        aria-label={`Read ${title}`}
-      />
+    <tr className={`${rowBorder}`}>
+      <td className="py-4 px-2 font-mono">
+        <Link href={`/blog/${id}`} className="block w-full h-full">
+          {date}
+        </Link>
+      </td>
+      <td className="py-4 px-2 font-mono">
+        <Link href={`/blog/${id}`} className="block w-full h-full">
+          {title}
+        </Link>
+      </td>
+      <td className="py-4 px-2 text-right text-gray-500 font-mono">
+        <Link href={`/blog/${id}`} className="block w-full h-full">
+          .
+        </Link>
+      </td>
     </tr>
   );
 };
